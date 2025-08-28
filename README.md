@@ -33,29 +33,35 @@ Before running this project, make sure you have the following installed:
 
 ### Installing dependencies
 
-run `npm install`
+```bash
+npm install
+```
 
-### create `.env.local` file
+Create .env.local file
+Create a .env.local file in the root directory:
 
 ```bash
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
+Start the development server
+```bash
+npm run dev
+```
+The application will start on http://localhost:3000
 
-##### Start the development server
-`npm run dev`
+Development
+```bash
+npm run dev          # Start development server with hot reload
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint for code quality
+```
+Utilities
+```bash
+npm run type-check   # Check TypeScript types
+Project Structure
+```
 
-The application will start on `http://localhost:3000`
-
-###### Development
-`npm run dev` # Start development server with hot reload
-`npm run build` # Build for production
-`npm run start` # Start production server
-`npm run lint` # Run ESLint for code quality
-
-###### Utilities
-`npm run type-check` # Check TypeScript types
-
-###### Project Structure
 ```bash
 ./
 ├── app/
@@ -80,10 +86,9 @@ The application will start on `http://localhost:3000`
 │   └── index.ts         # TypeScript type definitions
 ├── package.json
 └── next.config.js
-
 ```
 
-###### 🏗️ Architecture
+🏗️ Architecture
 This frontend follows modern React patterns with Next.js App Router:
 
 App Router: Utilizes Next.js 14's file-based routing system
@@ -93,7 +98,7 @@ State Management: React hooks for local state management
 API Integration: Centralized API client with proper error handling
 Loading States: Skeleton loaders and spinners for better UX
 
-###### 🎨 Design System
+🎨 Design System
 Theme
 Dark Theme: Primary background #1A1A1A for modern appearance
 Typography: Clean, readable fonts with proper hierarchy
@@ -108,9 +113,11 @@ Pink: Personal tasks
 Indigo: Work-related tasks
 Gray: Low priority tasks
 
-###### 🔌 API Integration
+
+🔌 API Integration
 The frontend communicates with the backend through a centralized API client:
 
+typescript
 ```bash
 // Example API usage
 const tasks = await taskApi.getTasks();
@@ -118,39 +125,3 @@ const newTask = await taskApi.createTask({ title: "New task", color: "blue" });
 const updatedTask = await taskApi.updateTask(1, { completed: true });
 await taskApi.deleteTask(1);
 ```
-
-###### 📱 Pages & Features
-Home Page (/)
-Display all tasks with completion status
-Task statistics and progress tracking
-Quick actions for task management
-Create Task (/create)
-Form for creating new tasks
-Color selection for task categorization
-Input validation and error handling
-Edit Task (/edit/[id])
-Edit existing task details
-Update task completion status
-Delete task functionality
-
-###### 🚨 Error Handling
-Loading States: Skeleton loaders during data fetching
-Error Boundaries: Graceful error handling with retry options
-Form Validation: Client-side validation with user feedback
-Network Errors: Proper error messages for API failures
-
-###### 🎯 Performance Optimizations
-Next.js App Router: Automatic code splitting and optimization
-TypeScript: Compile-time error catching
-Tailwind CSS: Purged CSS for minimal bundle size
-Component Optimization: Efficient re-rendering patterns
-
-###### 🧪 Development
-Code Quality:
-    ESLint: Configured for Next.js and TypeScript
-    TypeScript: Strict type checking enabled
-    Component Structure: Consistent component patterns
-:Styling
-    Tailwind CSS: Utility-first CSS framework
-    Custom Animations: CSS animations for loading states
-    Responsive Design: Mobile-first approach
