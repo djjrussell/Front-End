@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --foreground-rgb: 242, 242, 242;
+  --background-rgb: 26, 26, 26;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+Custom utility classes
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2;
+  }
+  
+  .task-card {
+    @apply bg-[#262626] rounded-lg p-4 flex items-center gap-3 border border-[#333333] hover:border-[#404040] transition-colors;
+  }
+  
+  .task-checkbox {
+    @apply flex-shrink-0 w-[18px] h-[18px] rounded-full border-2 flex items-center justify-center;
+  }
+  
+  .task-title {
+    @apply flex-1 font-normal text-sm leading-tight;
+  }
+}
+
+/* Ensure the page takes up full height */
+html, body {
+  height: 100%;
+}
+
+/* Improve font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes checkbox-fill {
+  0%, 20% { transform: scale(0); }
+  30%, 70% { transform: scale(1); }
+  80%, 100% { transform: scale(0); }
+}
+
+@keyframes checkmark-draw {
+  0%, 30% { opacity: 0; }
+  40%, 70% { opacity: 1; }
+  80%, 100% { opacity: 0; }
+}
+
+@keyframes task-complete {
+  0%, 33% { 
+    background-color: transparent; 
+    border-color: #4b5563; 
+  }
+  34%, 66% { 
+    background-color: #10b981; 
+    border-color: #10b981; 
+  }
+  67%, 100% { 
+    background-color: transparent; 
+    border-color: #4b5563; 
+  }
+}
+
+@keyframes fade-in-check {
+  0%, 33% { opacity: 0; }
+  34%, 66% { opacity: 1; }
+  67%, 100% { opacity: 0; }
+}
+
+.animate-checkbox-fill {
+  animation: checkbox-fill 2s ease-in-out infinite;
+}
+
+.animate-checkmark-draw {
+  animation: checkmark-draw 2s ease-in-out infinite;
+}
+
+.animate-task-complete {
+  animation: task-complete 2.4s ease-in-out infinite;
+}
+
+.animate-fade-in-check {
+  animation: fade-in-check 2.4s ease-in-out infinite;
+  opacity: 0;
+}
